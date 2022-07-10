@@ -1,0 +1,340 @@
+:root {
+  @media (prefers-color-scheme: light) {
+    --color-theme: red;
+    --color-background: #fff;
+    --color-text: #333;
+    --color-main: black;
+  }
+  @media (prefers-color-scheme: dark) {
+    --color-theme: #cc0000;
+    --color-background: #333;
+    --color-text: #fff;
+    --color-main: white;
+  }
+}
+
+$COLOR_THEME: var(--color-theme);
+$COLOR_BACKGROUND: var(--color-background);
+$COLOR_TEXT: var(--color-text);
+
+//メディアクエリ設定
+$mq-breakpoints: (
+  xl: 1440px,
+  lg: 1280px,
+  md: 1024px,
+  tb: 768px,
+  sm: 576px,
+  xs: 414px,
+) !default;
+
+@mixin mq($breakpoint: md, $rule: min, $subtraction: false) {
+  $breakpoint: map_get($mq-breakpoints, $breakpoint);
+
+  @if $rule==max and $subtraction {
+    $breakpoint: $breakpoint - 0.0625;
+  }
+
+  @media screen and (#{$rule}-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Header
+header {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  background-color: $COLOR_BACKGROUND;
+
+  .header-logo {
+    position: absolute;
+    text-decoration: none;
+
+    .header-title {
+      margin: 0 auto;
+      color: #4a77d2;
+      line-height: 1;
+      font-family: cursive;
+      font-weight: 400;
+      @media (prefers-color-scheme: dark) {
+        color: $COLOR_TEXT;
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  padding: 10px 0 30px;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: $COLOR_TEXT;
+  background-color: $COLOR_BACKGROUND;
+
+  .link-container {
+    margin: 40px 0 0 0;
+    display: flex;
+    align-items: center;
+
+    @include mq(tb, max) {
+      display: block;
+    }
+  }
+
+  .copyright {
+    font-family: "Noto Serif", serif;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    margin: 10px 0 30px 0;
+  }
+}
+
+// Main
+.main-container {
+  text-align: center;
+  height: 68vh;
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 5px;
+
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: change-gradient 13s ease infinite;
+
+  @keyframes change-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .main-title {
+    margin: 8px 0;
+    padding: 0 30px;
+    font-family: "Noto Serif", serif;
+    font-weight: 400;
+    font-size: 38px;
+    letter-spacing: 0.08em;
+    color: #fff;
+
+    @media (prefers-color-scheme: dark) {
+      color: #333;
+    }
+  }
+
+  @keyframes updown-anim {
+    0% {
+      transform: translateY(110%); /*表示範囲外から*/
+    }
+    13% {
+      transform: translateY(0); /*通常の位置へ*/
+    }
+    100% {
+      transform: translateY(0); /*文字が上に揃うまで待機*/
+    }
+  }
+
+  /*** アニメーションする要素の親 ***/
+  .updown {
+    display: flex; /*　横並びに */
+    overflow: hidden; /* はみ出たものを非表示に */
+  }
+
+  /*** アニメーションを適用する要素 ***/
+  .updown span {
+    transform: translateY(110%); /*デフォルトで下に隠す*/
+    display: block; /*ブロック要素に*/
+    animation: 3.5s updown-anim linear forwards; /* アニメーション */
+  }
+
+  /*** 各span(文字)に遅延時間delayを設定 ***/
+  .updown span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .updown span:nth-child(2) {
+    animation-delay: 0.05s;
+  }
+  .updown span:nth-child(3) {
+    animation-delay: 0.1s;
+  }
+  .updown span:nth-child(4) {
+    animation-delay: 0.15s;
+  }
+  .updown span:nth-child(5) {
+    animation-delay: 0.2s;
+  }
+  .updown span:nth-child(6) {
+    animation-delay: 0.25s;
+  }
+  .updown span:nth-child(7) {
+    animation-delay: 0.3s;
+  }
+  .updown span:nth-child(8) {
+    animation-delay: 0.35s;
+  }
+  .updown span:nth-child(9) {
+    animation-delay: 0.4s;
+  }
+  .updown span:nth-child(10) {
+    animation-delay: 0.45s;
+  }
+  .updown span:nth-child(11) {
+    animation-delay: 0.5s;
+  }
+  .updown span:nth-child(12) {
+    animation-delay: 0.55s;
+  }
+  .updown span:nth-child(13) {
+    animation-delay: 0.6s;
+  }
+  .updown span:nth-child(14) {
+    animation-delay: 0.65s;
+  }
+  .updown span:nth-child(15) {
+    animation-delay: 0.7s;
+  }
+  .updown span:nth-child(16) {
+    animation-delay: 0.75s;
+  }
+
+  .main-text {
+    margin: 0 auto;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    line-height: 24px;
+    color: #fff;
+    width: 90%;
+    max-width: 500px;
+
+    @media (prefers-color-scheme: dark) {
+      color: #333;
+    }
+  }
+}
+
+//Professional Experience
+.experience-container {
+  height: 75vh;
+  background-color: $COLOR_BACKGROUND;
+  color: $COLOR_TEXT;
+
+  @media screen and (max-width: "375px") {
+    height: 125vh;
+  }
+
+  @media screen and (min-width: "376px") and (max-width: "768px") {
+    height: 100vh;
+  }
+
+  .experience-title {
+    margin: 0;
+    padding: 60px 40px 0;
+    font-size: 32px;
+    letter-spacing: 0.08em;
+    font-family: "Noto Serif", serif;
+    font-style: normal;
+    font-weight: bold;
+    background-color: $COLOR_BACKGROUND;
+
+    @include mq(md) {
+      width: 100%;
+      padding: 100px 0 30px 0;
+      text-align: center;
+    }
+  }
+
+  .experience-item-container {
+    font-family: "Noto Serif", serif;
+    padding: 18px 0 18px 0;
+    margin: 40px 40px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 101%;
+      height: 1px;
+      background: #4a77d2;
+      position: absolute;
+      bottom: 0;
+    }
+
+    @include mq(md) {
+      text-align: center;
+      margin: 24px 200px 40px 200px;
+      padding: 18px 0;
+    }
+
+    .experience-item-title {
+      font-family: "Noto Serif", serif;
+      font-size: 23px;
+      letter-spacing: 0.08em;
+      margin: 0 auto;
+    }
+
+    .experience-item-term {
+      font-size: 17px;
+      letter-spacing: 0.05em;
+      line-height: 24px;
+      margin-top: 0;
+    }
+
+    .experience-item-languages-text {
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      line-height: 24px;
+      margin-bottom: 0;
+    }
+
+    .experience-item-languages {
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      line-height: 24px;
+      margin-top: 4px;
+    }
+  }
+}
+
+// Tweet
+.tweet-container {
+  background-color: #00acee;
+  text-align: center;
+  min-height: 45vh;
+  padding: 40px 30px 80px;
+
+  .tweet-title {
+    font-size: 32px;
+    letter-spacing: 0.08em;
+    color: #fff;
+    font-family: "Noto Serif", serif;
+    font-style: normal;
+    font-weight: bold;
+    z-index: 1;
+
+    @media (prefers-color-scheme: dark) {
+      color: #333;
+    }
+
+    @include mq(md) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
