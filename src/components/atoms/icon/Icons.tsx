@@ -5,11 +5,7 @@ import IconButton from "@mui/material/IconButton";
 export const Icons = () => {
   return (
     <>
-      <a
-        href="https://twitter.com/KFWebDeveloper"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="https://twitter.com/KFWebDev" target="_blank" rel="noreferrer">
         <IconButton>
           <TwitterIcon color="primary" fontSize="large" />
         </IconButton>
