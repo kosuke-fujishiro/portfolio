@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+const timelineUrl = process.env.REACT_APP_TWITTER_TIMELINE_URL;
 let isLoadwidgets = false;
 
 export const Tweet = () => {
@@ -20,7 +21,7 @@ export const Tweet = () => {
         data-width="600"
         data-height="600"
         data-chrome="noheadernofooternoborders"
-        href="https://twitter.com/KFWebDeveloper?ref_src=twsrc%5Etfw"
+        href={timelineUrl}
       >
         A Twitter List by Kosuke Fujishiro
       </a>
