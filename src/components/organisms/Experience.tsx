@@ -1,4 +1,5 @@
 import { ExperienceItems } from "../atoms/Experience/ExperienceItems";
+import ScrollRevealContainer from "../atoms/ScrollRevealContainer";
 
 const experiences = [
   {
@@ -18,8 +19,12 @@ export const Experience = () => {
   return (
     <div className="experience-container">
       <div className="experience-wrapper">
-        <h2 className="experience-title">Professional Experience</h2>
-        <ExperienceItems experiences={experiences} />
+        <ScrollRevealContainer>
+          <>
+            <h2 className="experience-title">Professional Experience</h2>
+            <ExperienceItems experiences={experiences} />
+          </>
+        </ScrollRevealContainer>
       </div>
     </div>
   );
