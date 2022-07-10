@@ -1,3 +1,5 @@
+import ScrollRevealContainer from "../atoms/ScrollRevealContainer";
+
 export const Main = () => {
   return (
     <div className="main-container">
@@ -19,7 +21,9 @@ export const Main = () => {
         <span>r</span>
         <span>o</span>
       </h1>
-      <p className="main-text">I am a software engineer working in Tokyo.</p>
+      <ScrollRevealContainer>
+        <p className="main-text">I am a software engineer working in Tokyo.</p>
+      </ScrollRevealContainer>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import React, { useEffect } from "react";
+import ScrollRevealContainer from "../atoms/ScrollRevealContainer";
 
 const timelineUrl = process.env.REACT_APP_TWITTER_TIMELINE_URL;
 let isLoadwidgets = false;
@@ -21,17 +22,21 @@ export const Tweet = () => {
 
   return (
     <div className="tweet-container">
-      <h2 className="tweet-title">Tweets</h2>
-      <a
-        className="twitter-timeline tweet-timeline"
-        data-width="600"
-        data-height="600"
-        data-theme={theme}
-        data-chrome="noheadernofooternoborders"
-        href={timelineUrl}
-      >
-        A Twitter List by Kosuke Fujishiro
-      </a>
+      <ScrollRevealContainer>
+        <>
+          <h2 className="tweet-title">Tweets</h2>
+          <a
+            className="twitter-timeline tweet-timeline"
+            data-width="600"
+            data-height="600"
+            data-theme={theme}
+            data-chrome="noheadernofooternoborders"
+            href={timelineUrl}
+          >
+            A Twitter List by Kosuke Fujishiro
+          </a>
+        </>
+      </ScrollRevealContainer>
     </div>
   );
 };
