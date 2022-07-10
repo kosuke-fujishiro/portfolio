@@ -1,7 +1,7 @@
 export const Main = () => {
   return (
     <div className="main-container">
-      <h1 className="main-title updown">
+      <h1 className="main-title up-text-animation">
         <span>K</span>
         <span>o</span>
         <span>s</span>
