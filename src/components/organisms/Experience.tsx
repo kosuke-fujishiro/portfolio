@@ -17,8 +17,10 @@ const experiences = [
 export const Experience = () => {
   return (
     <div className="experience-container">
-      <h2 className="experience-title">Professional Experience</h2>
-      <ExperienceItems experiences={experiences} />
+      <div className="experience-wrapper">
+        <h2 className="experience-title">Professional Experience</h2>
+        <ExperienceItems experiences={experiences} />
+      </div>
     </div>
   );
 };
