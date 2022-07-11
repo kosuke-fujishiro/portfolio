@@ -18,7 +18,7 @@ export const ExperienceItems = (props: Props) => {
               <h3 className="experience-item-title">{experience.title}</h3>
               <p className="experience-item-term">{experience.terms}</p>
               <p className="experience-item-languages-text">
-                Languages, flameworks and others that I have used here.
+                Languages, frameworks and others that I have used here.
               </p>
               <p className="experience-item-languages">
                 {experience.languages}...etc
